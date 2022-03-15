@@ -1,18 +1,22 @@
 data :
-  root_dir : "./data/SPOKEN"
-  train_orig_txt : ['/home/taesoo/GEC/data/SPOKEN/original_train.txt']
-  train_corrupt_txt : ['/home/taesoo/GEC/data/SPOKEN/corrupted_train.txt']
-  val_orig_txt : ['/home/taesoo/GEC/data/SPOKEN/original_val.txt']
-  val_corrupt_txt : ['/home/taesoo/GEC/data/SPOKEN/corrupted_val.txt']
+  root_dir : "/home/taesoo/GEC2/data/SPOKEN"
+  train_orig_txt : ['/home/taesoo/GEC2/data/SPOKEN/original_train.txt']
+  train_corrupt_txt : ['/home/taesoo/GEC2/data/SPOKEN/corrupted_train.txt']
+  val_orig_txt : ['/home/taesoo/GEC2/data/SPOKEN/original_val.txt']
+  val_corrupt_txt : ['/home/taesoo/GEC2/data/SPOKEN/corrupted_val.txt']
+  test_orig_txt : ['/home/taesoo/GEC2/data/SPOKEN/original_test.txt']
+  test_corrupt_txt : ['/home/taesoo/GEC2/data/SPOKEN/corrupted_test.txt']
 
 model_config:
   max_len : 128
-  critic :
+  discriminator :
     pretrained_model : "monologg/koelectra-base-v3-discriminator"
   generator :
     pretrained_model : "monologg/koelectra-base-v3-generator"
   
 train_config :
+  root_dir : "./logs"
   n_epochs : 1000
   batch_size : 32
+  n_workers : 4
   lr : 2e-5
